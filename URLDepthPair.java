@@ -11,10 +11,12 @@ public class URLDepthPair {
     public static final String URL_PREFIX = "http://";
 
 
-    public URLDepthPair(String url, int depth) throws MalformedURLException{
-        if(!url.startsWith(URL_PREFIX) || depth < 0){
-            throw new MalformedURLException("Something wrong with input data");
+    public URLDepthPair(String url, int depth) throws Exception {
+        if(!url.startsWith(URL_PREFIX)){
+            throw new MalformedURLException("Something wrong with URL prefix. URL must be starts with 'http://'.");
         }
+        if(depth < 0)
+            throw new Exception("Depth must be more than 0.");
         this.URLaddress = url;
         this.Depth = depth;
     }
@@ -25,6 +27,10 @@ public class URLDepthPair {
 
     public String getHost() throws MalformedURLException{
         return new URL(URLaddress).getHost();
+    }
+
+    public int getDepth(){
+        return Depth;
     }
 
     public String toString() {
