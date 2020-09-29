@@ -6,8 +6,7 @@ import java.net.URL;
  */
 public class URLDepthPair {
     private String URLaddress;
-    private int Depth = 0;
-    URL address;
+    private int Depth;
     public static final String URL_PREFIX = "http://";
 
 
@@ -31,6 +30,10 @@ public class URLDepthPair {
 
     public int getDepth(){
         return Depth;
+    }
+
+    public String getURLAddress(){
+        return URLaddress;
     }
 
     public String toString() {
